@@ -30,7 +30,7 @@ For this repository I chose to explore a Wine Reviews dataset compiled from Wine
 
 <div align="center">
   
-  ![wine_row](Images/wine_row.png)
+ 
   
 </div>
 
@@ -47,20 +47,12 @@ For this repository I chose to explore a Wine Reviews dataset compiled from Wine
  
 </div>
 
-<div align="center">
-  
-  ![wine_communication](Images/wine_communication.png)
 
-</div>
 
 ## Database<br><br>
 
 #### <ins><b>Dataset</ins></b><br> ####
 My raw dataset contained almost 130,000 rows of information that included the wine's title, grape variety, winery, country and region of origin, as well as the price per bottle, wine rating, taster name, and a description about the wine.  The original data was created by [Wine Enthusiast](https://www.winemag.com/ratings/?utm_source=wineenthusiast.com&utm_medium=affiliate&utm_content=topnav) and the [Wine Reviews dataset](https://www.kaggle.com/zynicide/wine-reviews) was posted on Kaggle.  I used a SQL database - see  [Entity Relationship Diagram (ERD)](https://github.comxxxxxQuickDBD-Winemag_data.png) with relationships. After we finished cleaning and transforming the data, our final [dataset](https://github.com/xxxxxxx/clean_wine_data.csv) contained almost 115,000 rows and 12 columns.<br><br>
-
-<div align="center">
-  
-![wine_database](Images/wine_database.png)
 
 </div>
 
@@ -82,15 +74,12 @@ To clean and transform our dataset further:<br>
 * I reluctantly dropped the description, designation, title and winery columns since they presented computational challenges for our machine learning model
 * I dropped the region_2 and taster_twitter_handle columns since they didn’t add value to our model or dashboard.<br><br>
 #### <ins><b>How the model works</ins></b><br> ####
-See a [flowchart](https://github.com/XXXXXX/MLModel_flowchart.png) for a broad overview of the process for my [machine learning model](https://github.com/xxxxx/MLModel.ipynb).  First, the model made a connection to our SQL database and read the dataset into a Pandas dataframe. Then, the data was cleaned and transformed. Once the data was ready, the categorical columns were split into binary data using scitkit-learn’s One Hot Encoder. This tool created a new column for each unique value in the previous columns which made the dataset quite larger than before. The data was then split using scikit-learn’s Train Test Split method into 75% training data and 25% testing data. Finally, the model was fit to the data. This was the most time-consuming part of the process. At 100 estimators, the model took about an hour to fit to the data.<br><br>
+See a [flowchart](https://github.com/Diana7e/Wine_selection_for_newbies/blob/879823e8bc24ba2daccdec988b5e1e3a3b3b0bcd/Python/MLModel_flowchart.pnghttps://github.com/Diana7e/Wine_selection_for_newbies/blob/879823e8bc24ba2daccdec988b5e1e3a3b3b0bcd/Python/MLModel_flowchart.png) for a broad overview of the process for my [machine learning model](https://github.com/Diana7e/Wine_selection_for_newbies/blob/879823e8bc24ba2daccdec988b5e1e3a3b3b0bcd/Python/MachineLearning_Wines.ipynb).  First, the model made a connection to our SQL database and read the dataset into a Pandas dataframe. Then, the data was cleaned and transformed. Once the data was ready, the categorical columns were split into binary data using scitkit-learn’s One Hot Encoder. This tool created a new column for each unique value in the previous columns which made the dataset quite larger than before. The data was then split using scikit-learn’s Train Test Split method into 75% training data and 25% testing data. Finally, the model was fit to the data. This was the most time-consuming part of the process. At 100 estimators, the model took about an hour to fit to the data.<br><br>
 #### <ins><b>Model Accuracy</ins></b><br> ####
 Since my target is continuous and not discrete, i could not use a confusion matrix and the traditional accuracy score to rate the performance of our model. Instead, i use the coefficient of determination (r²) as well as the mean squared error (mse). Both of these are simply just ways of measuring how far away each data point is from the line of regression. A perfect model has an r² value of 1 and a mse of 0.
 
 When i trained the model to predict wine ratings, it scored an r² value of 0.478 and an mse value of 4.78. When i trained it to predict categories of wine ratings, it scored an r² value of 0.149 and an mse value of 0.109. In the end, due to my computational limitations and the abundance of categorical features in our dataset, several of which i had to omit, my model performed mediocrely.<br><br>
 
-<div align="center">
-  
-![wine_cellar](Images/wine_cellar.png)<br><br>
 
 </div>
 
@@ -103,6 +92,4 @@ Ideally, natural language processing techniques would be used to predict score b
 
 <div align="center">
   
-![wine_toast_sunset](Images/wine_toast_sunset.jpg)<br><br>
-
 </div>
